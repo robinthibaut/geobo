@@ -18,18 +18,14 @@ For details see the LICENSE file.
 
 @author: Sebastian Haan
 """
-import os
 import random
 
 import matplotlib.pyplot as plt
 import pandas as pd
 import rasterio
-from matplotlib import cm
-from mpl_toolkits.mplot3d import axes3d
 
 from . import cubeshow as cs
 from . import inversion
-from .config_loader import *
 from .sensormodel import *
 
 
@@ -102,8 +98,8 @@ def create_syncube(modelname, voxelpos):
         rc1 = ((y3 - yLcube / 1.3 - rad) ** 2) + ((z3 + zLcube / (4) - rad) ** 2)
         rc2 = ((y3 - yLcube / 4.0 - rad) ** 2) + ((z3 + zLcube / (4) - rad) ** 2)
         density = x3 * 0.0 + 0.1
-        density[rc2 <= rad ** 2] = 1.0
-        density[rc1 <= rad ** 2] = 1.0
+        density[rc2 <= rad**2] = 1.0
+        density[rc1 <= rad**2] = 1.0
         density[(x3 < xLcube / 5.0) | (x3 > xLcube * 4.0 / 5.0)] = 0.1
         # magnetic = density
         magsus = gp_coeff[1] * density

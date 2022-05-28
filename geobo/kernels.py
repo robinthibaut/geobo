@@ -21,7 +21,6 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 import numpy as np
-from scipy import reshape, sqrt, identity
 
 
 def calcGridPoints3D(Lpix, pixscale):
@@ -81,7 +80,7 @@ def calc_square_distances2D(Lpix, pixscale):
     xr, yr = _xg.ravel(), _yg.ravel()
     Dx = xr[:, np.newaxis] - xr[np.newaxis, :]
     Dy = yr[:, np.newaxis] - yr[np.newaxis, :]
-    return Dx ** 2 + Dy ** 2
+    return Dx**2 + Dy**2
 
 
 def gpkernel(D2, gamma):
@@ -91,7 +90,7 @@ def gpkernel(D2, gamma):
     :param D2: pairwise square distances
     :param gamma: kernel length scale
     """
-    return np.exp(-0.5 * D2 / gamma ** 2)
+    return np.exp(-0.5 * D2 / gamma**2)
 
 
 def gpkernel2(D2, gammas):
@@ -103,8 +102,8 @@ def gpkernel2(D2, gammas):
     """
     l1 = gammas[0]
     l2 = gammas[1]
-    return np.sqrt(2.0 * l1 * l2 / (l1 ** 2 + l2 ** 2)) * np.exp(
-        -D2 / (l1 ** 2 + l2 ** 2)
+    return np.sqrt(2.0 * l1 * l2 / (l1**2 + l2**2)) * np.exp(
+        -D2 / (l1**2 + l2**2)
     )
 
 
@@ -150,8 +149,8 @@ def gpkernel_sparse2(D2, gammas):
             lmin
             + 1
             / np.pi
-            * lmax ** 3
-            / (lmax ** 2 - lmin ** 2)
+            * lmax**3
+            / (lmax**2 - lmin**2)
             * np.sin(
                 np.pi
                 * lmin
@@ -167,20 +166,20 @@ def gpkernel_sparse2(D2, gammas):
         * (
             lmean
             - D2[(D2 >= abs(l2 - l1) / 2.0) & (D2 <= (l1 + l2) / 2.0)]
-            + l1 ** 3
+            + l1**3
             * np.sin(
                 np.pi
                 * (l2 - 2.0 * D2[(D2 >= abs(l2 - l1) / 2.0) & (D2 <= (l1 + l2) / 2.0)])
                 / l1
             )
-            / (2 * np.pi * (l1 ** 2 - l2 ** 2))
-            - l2 ** 3
+            / (2 * np.pi * (l1**2 - l2**2))
+            - l2**3
             * np.sin(
                 np.pi
                 * (l1 - 2.0 * D2[(D2 >= abs(l2 - l1) / 2.0) & (D2 <= (l1 + l2) / 2.0)])
                 / l2
             )
-            / (2 * np.pi * (l1 ** 2 - l2 ** 2))
+            / (2 * np.pi * (l1**2 - l2**2))
         )
     )
     # Remove floating errors
@@ -204,7 +203,7 @@ def gpkernel_matern32_2(D2, gammas):
     """
     l1 = gammas[0]
     l2 = gammas[1]
-    norm = 2 * np.sqrt(l1 * l2) / (l1 ** 2 - l2 ** 2)
+    norm = 2 * np.sqrt(l1 * l2) / (l1**2 - l2**2)
     return norm * (
         l1 * np.exp(-np.sqrt(3 * D2) / l1) - l2 * np.exp(-np.sqrt(3 * D2) / l2)
     )

@@ -1,9 +1,10 @@
-from setuptools import setup, find_packages
-from numpy.distutils.core import setup, Extension
-from os import path
+import io
 import os
 import subprocess
-import io
+from os import path
+
+from numpy.distutils.core import setup, Extension
+from setuptools import setup, find_packages
 
 ## in development set version
 PYPI_VERSION = '1.0.0'

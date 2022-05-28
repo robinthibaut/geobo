@@ -21,8 +21,6 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
-import numpy as np
-
 from .config_loader import *
 
 
@@ -117,7 +115,7 @@ def grav_func(x, y, z):
     :param z: z coordinate of the position.
     """
     eps = 1e-9
-    r = np.sqrt(x ** 2 + y ** 2 + z ** 2)
+    r = np.sqrt(x**2 + y**2 + z**2)
     func = (
         x * np.log(y + r) + y * np.log(x + r) - z * np.arctan((x * y) / (z * r + eps))
     )
@@ -138,7 +136,7 @@ def magn_func(x, y, z, bx, by, bz):
     :param by: The magnetic field in y-direction at this position
     :param bz: The magnetic field in z-direction at this position
     """
-    r = np.sqrt(x ** 2 + y ** 2 + z ** 2)
+    r = np.sqrt(x**2 + y**2 + z**2)
     # Compute the normalisation factor for the magnetic field
     normB = np.sqrt(bx * bx + by * by + bz * bz)
     func = (

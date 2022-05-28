@@ -22,5 +22,3 @@ if len(sys.argv) == 2:
 else:
     fname_settings = "settings.yaml"
     print("No settings file specified, using settings in: " + fname_settings)
-
-from geobo import run_geobo

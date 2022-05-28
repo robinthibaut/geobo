@@ -11,11 +11,8 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
-import sys
-
-import numpy as np
-from scipy.linalg import pinv, solve, cholesky, solve_triangular
-from scipy.optimize import minimize, shgo
+from scipy.linalg import cholesky, solve_triangular
+from scipy.optimize import shgo
 
 from . import kernels as kernel  # for Gaussian Process prior
 from . import sensormodel as sm
@@ -115,7 +112,7 @@ class Inversion:
             )
         )
         # try:
-        AkA = np.dot(self.Asens3, np.dot(self.kcov, self.Asens3.T)) + np.diag(yerr ** 2)
+        AkA = np.dot(self.Asens3, np.dot(self.kcov, self.Asens3.T)) + np.diag(yerr**2)
         # AkA = np.dot(Ak, self.Asens3.T) + np.diag(yerr**2) # shape(2*Nsensor, 2*Nsensor)
         # Cholesky decomposition
         try:
@@ -174,7 +171,7 @@ class Inversion:
                 )
             )
             # Cholesky decomposition
-            AkA = np.dot(self.Asens3, np.dot(kcov, self.Asens3.T)) + np.diag(yerr ** 2)
+            AkA = np.dot(self.Asens3, np.dot(kcov, self.Asens3.T)) + np.diag(yerr**2)
             AkA_chol = cholesky(AkA, lower=True)
             usolve = solve_triangular(
                 AkA_chol, self.Fs3, lower=True
@@ -311,13 +308,13 @@ class Inversion:
         density_rec = (
             results_rec[0] * grav_std
         )  # Model represents deviation from the mean
-        density_var = results_var[0] * grav_std ** 2
+        density_var = results_var[0] * grav_std**2
         magsus_rec = (
             results_rec[1] * magn_std
         )  # Model represents deviation from the mean
-        magsus_var = results_var[1] * magn_std ** 2
+        magsus_var = results_var[1] * magn_std**2
         drill_rec = (
             results_rec[2] * drill_std
         )  # Model represents deviation from the mean
-        drill_var = results_var[2] * drill_std ** 2
+        drill_var = results_var[2] * drill_std**2
         return density_rec, magsus_rec, drill_rec, density_var, magsus_var, drill_var

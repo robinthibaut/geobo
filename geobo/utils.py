@@ -11,9 +11,6 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
-import os
-
-import numpy as np
 import pandas as pd
 import rasterio
 from scipy.ndimage.interpolation import zoom
