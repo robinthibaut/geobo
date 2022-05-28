@@ -1,13 +1,13 @@
-#GeoBO: A Python package for Multi-Objective Bayesian Optimisation and Joint Inversion in Geosciences
+# GeoBO: A Python package for Multi-Objective Bayesian Optimisation and Joint Inversion in Geosciences
 #
-#Copyright 2020 Sebastian Haan
+# Copyright 2020 Sebastian Haan
 #
-#This file is part of GeoBO.
+# This file is part of GeoBO.
 #
-#GeoBO is free software made available under the AGPL License. 
-#For details see the LICENSE file.
+# GeoBO is free software made available under the AGPL License.
+# For details see the LICENSE file.
 #
-#@author: Sebastian Haan
+# @author: Sebastian Haan
 
 """
 GeoBO is build upon a probabilistic framework using Gaussian Process (GP) priors to jointly solve multi-linear forward models. 
