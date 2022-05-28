@@ -20,8 +20,8 @@ For details see the LICENSE file.
 
 @author: Sebastian Haan
 """
-from scipy import reshape, sqrt, identity
 import numpy as np
+from scipy import reshape, sqrt, identity
 
 
 def calcGridPoints3D(Lpix, pixscale):

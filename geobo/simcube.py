@@ -19,16 +19,18 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 import os
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.pyplot as plt
-from matplotlib import cm
-import pandas as pd
 import random
+
+import matplotlib.pyplot as plt
+import pandas as pd
 import rasterio
-from .config_loader import *
-from . import inversion
-from .sensormodel import *
+from matplotlib import cm
+from mpl_toolkits.mplot3d import axes3d
+
 from . import cubeshow as cs
+from . import inversion
+from .config_loader import *
+from .sensormodel import *
 
 
 def create_syncube(modelname, voxelpos):

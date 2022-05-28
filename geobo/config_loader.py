@@ -11,10 +11,11 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
-import yaml
 import os
 import sys
+
 import numpy as np
+import yaml
 
 # Load settings as arguments:
 if len(sys.argv) == 2:

@@ -11,11 +11,13 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
+import os
+
 import numpy as np
 import pandas as pd
 import rasterio
-import os
 from scipy.ndimage.interpolation import zoom
+
 from .config_loader import *
 
 

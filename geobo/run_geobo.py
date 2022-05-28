@@ -15,17 +15,18 @@ For details see the LICENSE file.
 """
 import os
 import sys
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import rasterio
+from matplotlib import cm
+from mpl_toolkits.mplot3d import axes3d
+from scipy import interpolate
 from scipy import interpolate
 from scipy.ndimage.interpolation import zoom
 from scipy.optimize import minimize, least_squares, shgo
 from scipy.stats import norm, pareto
-from scipy import interpolate
-from mpl_toolkits.mplot3d import axes3d
-import matplotlib.pyplot as plt
-from matplotlib import cm
 
 
 def read_surveydata(plot=True):

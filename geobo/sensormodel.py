@@ -22,6 +22,7 @@ For details see the LICENSE file.
 """
 
 import numpy as np
+
 from .config_loader import *
 
 

@@ -11,13 +11,16 @@ For details see the LICENSE file.
 @author: Sebastian Haan
 """
 
-import numpy as np
 import sys
+
+import numpy as np
 from scipy.linalg import pinv, solve, cholesky, solve_triangular
 from scipy.optimize import minimize, shgo
-from .config_loader import *
+
 from . import kernels as kernel  # for Gaussian Process prior
 from . import sensormodel as sm
+from .config_loader import *
+
 
 # from sensormodel import A_sens, A_drill
 

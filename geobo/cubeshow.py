@@ -14,15 +14,15 @@ For details see the LICENSE file.
 """
 
 import os
-import numpy as np
 import os
 import sys
-from mpl_toolkits.mplot3d import axes3d
+
 import matplotlib.pyplot as plt
+import numpy as np
+import pyvista as pv  # helper module for the Visualization Toolkit (VTK)
 from matplotlib import cm
 from matplotlib.colors import LightSource
-import pyvista as pv  # helper module for the Visualization Toolkit (VTK)
-
+from mpl_toolkits.mplot3d import axes3d
 # import plotly.plotly as py
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from skimage import measure
